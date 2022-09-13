@@ -1,19 +1,16 @@
 #include "main.h"
+
 /**
- * main - Entry 
- * Description: You are not allowed to include standard libraries.
- * Return: 0
+ * main - Entry point
+ * Return: Always 0.
  */
 int main(void)
 {
-	char name[] = "Adamson";
-	int i = 0;
-
-	while (name[i] != '\0')
-	{
-		_putchar(name[i]);
-		i++;
-	}
+	_putchar('H');
+	_putchar('e');
+	_putchar('l');
+	_putchar('l');
+	_putchar('o');
 	_putchar('\n');
 
 	return (0);
