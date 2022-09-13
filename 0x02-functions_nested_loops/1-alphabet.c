@@ -3,7 +3,7 @@
 /**
  * print_alphabet - prints the alphabet
  *
- * Description: A function that prints the alphabet, in lowercase, followed by a new line
+ * Description: Prints the alphabet, in lowercase, followed by a new line
  * Return: void
  */
 
