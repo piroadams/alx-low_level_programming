@@ -7,14 +7,9 @@
  */
 int main(void)
 {
-	char ch = "Task 0";
+	char *ch;
 
-	while (ch)
-	{
-		_putchar(ch);
-		ch++;
-	}
-	_putchar('\n');
-
+	for (ch = "Task 0\n"; *ch != '\0'; ++ch)
+	_putchar(*ch);
 	return (0);
-}
+}}
