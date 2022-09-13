@@ -11,5 +11,5 @@ int main(void)
 	_putchar('e');
 	_putchar('\n');
 
-	return(0);
+	return(0);
 }
