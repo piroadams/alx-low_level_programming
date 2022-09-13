@@ -7,9 +7,9 @@
  */
 int main(void)
 {
-	char *ch;
+	_putchar('m');
+	_putchar('e');
+	_putchar('\n');
 
-	for (ch = "Task 0\n"; *ch != '\0'; ++ch)
-	_putchar(*ch);
-	return (0);
-}}
+	return(0);
+}
