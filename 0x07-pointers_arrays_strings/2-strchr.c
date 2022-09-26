@@ -8,12 +8,17 @@
  * Return: If a match is found, return a pointer to it.
  * Otherwise, return NULL.
  */
+
 char *_strchr(char *s, char c)
 {
-	for ( ; *s; ++s)
+	while (*s != '\0')
 	{
 		if (*s == c)
 			return (s);
+		else if (*(s + 1) == c)
+			return (s + 1);
+		s++;
 	}
-	return (*s == c ? s : NULL);
+
+	return (s + 1);
 }
