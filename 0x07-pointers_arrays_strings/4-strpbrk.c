@@ -8,17 +8,27 @@
  * Return: pointer to the byte in s that matches  one  of  the  bytes  in
  * accept, or NULL if no such byte is found.
  */
+
 char *_strpbrk(char *s, char *accept)
 {
-	char *accept_pos;
+	int i, j;
+	char *p;
 
-	for ( ; *s; ++s)
+	i = 0;
+	while (s[i] != '\0')
 	{
-		for (accept_pos = accept; *accept_pos; ++accept_pos)
+		j = 0;
+		while (accept[j] != '\0')
 		{
-			if (*s == *accept_pos)
-				return (s);
+			if (accept[j] == s[i])
+			{
+				p = &s[i];
+				return (p);
+			}
+			j++;
 		}
+		i++;
 	}
-	return (NULL);
+
+	return (0);
 }
