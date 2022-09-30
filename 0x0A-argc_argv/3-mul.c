@@ -1,63 +1,25 @@
 #include "main.h"
-#include <limits.h>
-
-
-/**
- * print_number - print an integer
- * @n: the integer to print
- *
- * Return: void
- */
-void print_number(int n)
-{
-	if (n > -1)
-	{
-		if (n > 9)
-			print_number(n / 10);
-		_putchar('0' + n % 10);
-	}
-	else
-	{
-		_putchar('-');
-		if (n < -9)
-			print_number(n / -10);
-		_putchar('0' - n % 10);
-	}
-}
-
+#include <stdio.h>
+#include <stdlib.h>
 
 /**
- * _puts - print a string, followed by a new line
- * @str: the string to print
- *
- * Return: void
+ * main - multiply 2 numbers passed to main, or Error
+ * @argc: argument count
+ * @argv: argument vector
+ * Return: 1 if error, 0 if function runs correctly
  */
-void _puts(char *str)
-{
-	while (*str)
-		_putchar(*str++);
-	_putchar('\n');
-}
 
-
-/**
- * main - print the product of two numbers
- * @argc: size of the argument vector
- * @argv: program name and arguments
- *
- * Return: 1 if called with anything other than 2 arguments,
- * otherwise 0
- */
 int main(int argc, char *argv[])
 {
-	if (argc != 3)
+	(void) argc;
+
+	if (argv[1] && argv[2])
 	{
-		_puts("Error");
-		return (1);
+		printf("%d\n", atoi(argv[1]) * atoi(argv[2]));
+		return (0);
 	}
+	else
+		printf("Error\n");
 
-	print_number(atoi(argv[1]) * atoi(argv[2]));
-	_putchar('\n');
-
-	return (0);
+	return (1);
 }

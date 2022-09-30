@@ -1,82 +1,37 @@
 #include "main.h"
-#include <limits.h>
-
-
-/**
- * print_number - print an integer
- * @n: the integer to print
- *
- * Return: void
- */
-void print_number(int n)
-{
-	if (n > -1)
-	{
-		if (n > 9)
-			print_number(n / 10);
-		_putchar('0' + n % 10);
-	}
-	else
-	{
-		_putchar('-');
-		if (n < -9)
-			print_number(n / -10);
-		_putchar('0' - n % 10);
-	}
-}
-
+#include <stdio.h>
+#include <stdlib.h>
 
 /**
- * _puts - print a string, followed by a new line
- * @str: the string to print
- *
- * Return: void
+ * main - add 2 positive numbers and print the result
+ * @argc: argument count
+ * @argv: argument vector, array of strings
+ * Description: If no number is passed to program, print 0.
+ * If one of the numbers contain non-digits, print Error.
+ * Return: 1 if error, 0 if function runs properly.
  */
-void _puts(char *str)
-{
-	while (*str)
-		_putchar(*str++);
-	_putchar('\n');
-}
 
-
-/**
- * isdigits - check if a string is a number
- * @s: a pointer to the string to check
- *
- * Return: 1 if the string is a number,
- * otherwise 0
- */
-int isdigits(char *s)
-{
-	while ('0' <= *s && *s <= '9')
-		++s;
-	return (!*s);
-}
-
-
-/**
- * main - print the sum of positive integers
- * @argc: size of the argument vector
- * @argv: program name and arguments
- *
- * Return: 1 if called with arguments containing non-digit symbols,
- * otherwise 0
- */
 int main(int argc, char *argv[])
 {
-	int sum;
+	int total, i;
+	char *p;
+	int num;
 
-	for (sum = 0; --argc; sum += atoi(*argv))
+	total = 0;
+	if (argc > 1)
 	{
-		if (!isdigits(*(++argv)))
+		for (i = 1; argv[i]; i++)
 		{
-			_puts("Error");
-			return (1);
+			num = strtol(argv[i], &p, 10);
+			if (!*p)
+				total += num;
+			else
+			{
+				printf("Error\n");
+				return (1);
+			}
 		}
 	}
-
-	printf("%d\n", sum);
-
+	printf("%d\n", total);
 	return (0);
 }
