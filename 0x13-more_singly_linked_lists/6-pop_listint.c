@@ -1,23 +1,21 @@
 #include "lists.h"
 
 /**
- * pop_listint - deletes the head of a linkedlist
- * @head: head of the linkedlist
- * Return: the value of the head that was remove
+ * pop_listint - removes the head of a list
+ * @head: pointer to head
+ *
+ * Return: data of the head 0 otherwise
  */
-
 int pop_listint(listint_t **head)
 {
 	listint_t *tmp;
-	int val;
+	int retval;
 
-	if (head == NULL || *head == NULL)
+	if (!head || !(*head))
 		return (0);
-	val = (*head)->n;
 	tmp = (*head)->next;
-
+	retval = (*head)->n;
 	free(*head);
 	*head = tmp;
-
-	return (val);
+	return (retval);
 }
